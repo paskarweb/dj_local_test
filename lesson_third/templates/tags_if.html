@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Tags</title>
+	<style>
+		h2
+		{			
+			color: red;
+			text-decoration: underline;			
+		}
+		span
+		{
+			color: blue;
+			font-size: 32px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Tags</h1>
+	<h2>if/else</h2>
+	<h2>Переменные:</h2>
+	{% if user %}
+		<h4>{{user}}</h4>
+	{% endif %}
+
+	{% if list %}
+		<p>{{list}}</p>
+	{% endif %}	
+
+	{% if list or some_var %}
+		<span>There ara some list or some_var</span>
+	{% endif %}
+
+	{% if list %}
+		{% if list|length != 2  %}
+			<p>{{list}}</p>
+		{%endif%}		
+	{%endif%}
+
+	{% if var == "var1" %}
+		<p>{{var}}</p>
+	{% elif var == "var2" %}	
+		<p>{{var}}</p>
+	{% elif var == "var3" %}	
+		<p>{{var}}</p>
+	{% else %}		
+		EMPTY!
+	{% endif %}	
+
+<hr>
+	{% if "name" in obj %}
+		{{obj.name}}
+	{% endif %}	
+<hr>	
+	{% if "bc" in "abcdef" %}
+		This is "bc" in "abcdef"
+	{% endif %}	
+<hr>
+	{% if "bc" not in "adec" %}
+		This is "bc" not in "adec"
+	{% endif %}	
+<hr>		
+
+
+
+
+
+
+
+
+	
+</body>
+</html>

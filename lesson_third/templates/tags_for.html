@@ -1,0 +1,88 @@
+{% load poll_extras %}  <!-- ПОДКЛЮЧАЕМ свои теги templatetags/poll_extras.py -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>FOR</title>
+	<style>	
+	</style>
+</head>
+<body>
+List
+<ul>
+{% for elem in list %}
+	<li>{{elem}}</li>
+{% endfor %}
+</ul>
+<h1>Переменные цикла  FOR:</h1>
+<h2>forloop.counter начало отсчета с 1</h2>
+{% for item in list %}	
+	<p>{{ forloop.counter }} : {{ item }} </p>
+{% endfor %}
+<hr>
+<h2>forloop.counter0 начало отсчета с 0</h2>
+{% for item in list %}	
+	<p>{{ forloop.counter0 }} : {{ item }} </p>
+{% endfor %}
+<hr>
+<h2>forloop.revcounter наоборот до 1</h2>
+{% for item in list %}	
+	<p>{{ forloop.revcounter }} : {{ item }} </p>
+{% endfor %}
+<hr>
+<h2>forloop.rebvcounter0 наоборот до 0 (n-1)</h2>
+{% for item in list %}	
+	<p>{{ forloop.revcounter0 }} : {{ item }} </p>
+{% endfor %}
+<hr>
+
+<h2>forloop.first</h2>
+{% for item in list %}	
+	<p>{{ forloop.first }} : {{ item }} </p>
+{% endfor %}
+<hr>
+<h2>forloop.last</h2>
+{% for item in list %}	
+	<p>{{ forloop.last }} : {{ item }} </p>
+{% endfor %}
+<hr>
+<h2>{ if not forloop.last }|{ endif }</h2>
+{% for item in list %}
+	<span>{{ item }}</span>	
+	<span>{% if not forloop.last %}|{% endif %} <span>
+{% endfor %}
+<hr>
+<h2>Проверка на пустоту</h2>
+{% if list %}
+	{% for elem in list %}
+		<p>{{ elem }}</p>
+	{% endfor %}
+{% else %}	
+	<p>EMPTY!</p>
+{% endif %}	
+<hr>
+
+
+<h2>Проверка на пустоту. Тег empty, быстрее</h2>
+{% for elem in empty %}
+	<p>{{ elem }}</p>
+{% empty %}	
+	<p>IS EMPTY!</p>
+{% endfor %}
+<hr>
+
+{% comment %}
+	<p>Commented out text</p>
+{% endcomment %}
+
+
+
+
+<span> Мой тег minusone :</span>
+	{% minusone -10 %}
+<br>
+<span> Мой тег minustwo :</span>
+	{% minustwo 17 %}
+
+</body>
+</html>

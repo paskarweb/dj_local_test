@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<title>TITLE</title>	
+</head>
+<body>
+
+<form action="/lesson-fifth/search/" method="get">
+	<input type="text" name="q">
+	<input type="submit" name="Search">
+</form>
+
+<br><br>
+
+<form action="/lesson-fifth/file-input/" method="post">
+	{% csrf_token %}
+	Ваше имя: <input type="text" name="name"><br>
+	Фамилия: <input type="text" name="surname"><br>
+	Дата рождения: <input type="text" name="birth"><br>
+	Ваш пол <br>
+	<input type="radio" name="gender" value="male">Мужчина<br>
+	<input type="radio" name="gender" value="female">Женщина<br>
+
+	<button type="submit">Записать в файл</button>	
+</form>
+	
+</body>
+</html>
